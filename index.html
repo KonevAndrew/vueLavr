@@ -5,9 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/style.css">
+    <script src="/js/vue.js"></script>
     <title>Document</title>
 </head>
 <body>
     <h1>hello vue</h1>
+
+<div class="wraper">
+    <div class="sample">
+
+    <input type="text" v-model="name">
+
+    <button v-on:click="showTitle = !showTitle" 
+            v-bind:title="showTitle ? 'скрыть' : 'показать'">есть/нет</button>
+
+    <h2 v-show="showTitle">hello {{ name }}</h2>
+
+    <hr>
+
+    <ul class="item">
+        <li class="list"
+         v-for="number in numbers"> {{ numbers }} </li>
+    </ul>
+    </div>
+</div>
+<script>
+    let sample = new Vue({
+        el: '.sample',
+        data: {
+            name: 'пес шершавый',
+            showTitle: true,
+            numbers: [1,2,3,4,5],
+        }
+    })
+</script>
+
 </body>
 </html>
